@@ -1,0 +1,9 @@
+*
+!bin/
+!docs/
+!src/
+!composer.json
+!Dockerfile
+!Docker.README.md
+!LICENSE
+!README.md

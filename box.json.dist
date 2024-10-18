@@ -1,0 +1,7 @@
+{
+    "main": "bin/descarga-masiva.php",
+    "output": "build/descarga-masiva.phar",
+    "chmod": "0700",
+    "compression": "GZ",
+    "git": "box_git_version"
+}

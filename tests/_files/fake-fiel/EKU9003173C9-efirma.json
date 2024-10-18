@@ -1,0 +1,6 @@
+{
+  "certificateFile": "EKU9003173C9.cer",
+  "privateKeyFile": "EKU9003173C9.key",
+  "passPhrase": "12345678a",
+  "tokenFile": "EKU9003173C9-token.json"
+}
