@@ -19,7 +19,6 @@ use PhpCfdi\SatWsDescargaMasiva\CLI\Commands\ZipExportMetadataCommand\MetadataPr
 use PhpCfdi\SatWsDescargaMasiva\CLI\Internal\Filesystem;
 use PhpCfdi\SatWsDescargaMasiva\PackageReader\MetadataItem;
 use PhpCfdi\SatWsDescargaMasiva\PackageReader\MetadataPackageReader;
-use RuntimeException;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -68,10 +67,10 @@ class ZipExportMetadataCommand extends Command
         $fs = new Filesystem();
         try {
             if (! $fs->exists($sourcePath) || $fs->isDirectory($sourcePath)) {
-                throw new RuntimeException("El archivo $sourcePath no existe");
+                throw new ExecutionException("El archivo $sourcePath no existe");
             }
             $packageReader = MetadataPackageReader::createFromFile($sourcePath);
-        } catch (RuntimeException $exception) {
+        } catch (Throwable $exception) {
             throw ExecutionException::make("El archivo $sourcePath no se pudo abrir", $exception);
         }
 

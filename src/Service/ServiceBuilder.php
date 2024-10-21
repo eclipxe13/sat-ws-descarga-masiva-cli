@@ -13,11 +13,11 @@ use PhpCfdi\SatWsDescargaMasiva\Service;
 use PhpCfdi\SatWsDescargaMasiva\Shared\ServiceEndpoints;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
-use RuntimeException;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Logger\ConsoleLogger;
 use Symfony\Component\Console\Output\OutputInterface;
 use Throwable;
+use UnexpectedValueException;
 
 final class ServiceBuilder
 {
@@ -173,9 +173,9 @@ final class ServiceBuilder
         try {
             $values = json_decode($contents, associative: true, flags: JSON_THROW_ON_ERROR);
             if (! is_array($values)) {
-                throw new RuntimeException('Content is not an object');
+                throw new UnexpectedValueException('JSON content is not an object');
             }
-        } catch (JsonException | RuntimeException $exception) {
+        } catch (JsonException | UnexpectedValueException $exception) {
             throw new Exceptions\InputException(
                 sprintf('El archivo de configuración de eFirma "%s" no se pudo interpretar como JSON', $configFile),
                 'efirma',
