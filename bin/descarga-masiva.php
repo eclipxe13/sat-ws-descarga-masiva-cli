@@ -10,7 +10,7 @@ use PhpCfdi\SatWsDescargaMasiva\CLI\Commands\ZipExportMetadataCommand;
 use PhpCfdi\SatWsDescargaMasiva\CLI\Commands\ZipExportXmlCommand;
 use Symfony\Component\Console\Application;
 
-require __DIR__ . '/../vendor/autoload.php';
+require $_composer_autoload_path ?? __DIR__ . '/../vendor/autoload.php';
 
 $application = new Application('descarga-masiva', '@box_git_version@');
 $application->setCatchExceptions(true);

@@ -61,7 +61,7 @@ una herramienta y no de un componente o libería.
 # instalar la herramienta
 composer require phpcfdi/sat-ws-descarga-masiva-cli
 # ejecutar el script
-php vendor/phpcfdi/sat-ws-descarga-masiva-cli/bin/descarga-masiva.php --version
+php vendor/bin/descarga-masiva.php --version
 ```
 
 Suponiendo que la herramienta se instaló en `~/projects/sat-ws-descarga-masiva-cli`, entonces podrías poner después

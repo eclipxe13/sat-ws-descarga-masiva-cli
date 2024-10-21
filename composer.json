@@ -24,6 +24,7 @@
     "require": {
         "php": "^8.2",
         "ext-json": "*",
+        "composer-runtime-api": "^2.2",
         "azjezz/psl": "^3.0.2",
         "eclipxe/enum": "^0.2.6",
         "eclipxe/xlsxexporter": "^2.0.0",
@@ -45,6 +46,9 @@
             "PhpCfdi\\SatWsDescargaMasiva\\CLI\\Tests\\": "tests/"
         }
     },
+    "bin": [
+        "bin/descarga-masiva.php"
+    ],
     "scripts": {
         "dev:build": [
             "@dev:fix-style",
