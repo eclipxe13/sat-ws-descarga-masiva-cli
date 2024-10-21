@@ -69,7 +69,7 @@ un script de ejecución como el siguiente en `/usr/local/bin/descarga-masiva` o 
 
 ```bash
 !#/usr/bin/env bash -e
-php ~/projects/sat-ws-descarga-masiva-cli/bin/descarga-masiva.php "${@}"
+php ~/projects/sat-ws-descarga-masiva-cli/vendor/bin/descarga-masiva.php "${@}"
 ```
 
 ### Instalación desde el repositorio Git
