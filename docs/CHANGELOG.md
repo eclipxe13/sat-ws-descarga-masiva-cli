@@ -14,10 +14,14 @@ que nombraremos así: ` Breaking . Feature . Fix `, donde:
 **Importante:** Las reglas de SEMVER no aplican si estás usando una rama (por ejemplo `main-dev`)
 o estás usando una versión cero (por ejemplo `0.18.4`).
 
-## Versión 1.0.0 2024-10-18
+## Versión 0.0.2 2024-10-21
+
+- Se agrega la información del archivo `bin/descarga-masiva.php` a la sección de "binarios" de *Composer*.
+
+## Versión 0.0.1 2024-10-18
 
 - Primera versión pública.
 
-## Versión 0.1.0 2020-01-01
+## Versión 0.0.0 2020-01-01
 
 - Trabajo inicial para hacer pruebas con amigos.
