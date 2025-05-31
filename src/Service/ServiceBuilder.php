@@ -135,7 +135,7 @@ final class ServiceBuilder
         Fiel $fiel,
         LoggerInterface $logger,
         ServiceEndpoints $endPoints,
-        StorageToken $storageToken
+        StorageToken $storageToken,
     ): Service {
         $fielRequestBuilder = new FielRequestBuilder($fiel);
         $webClient = GuzzleWebClientWithLogger::createDefault($logger);

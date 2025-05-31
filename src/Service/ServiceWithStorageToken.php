@@ -18,7 +18,7 @@ final class ServiceWithStorageToken extends Service
         RequestBuilderInterface $requestBuilder,
         WebClientInterface $webclient,
         StorageToken $storageToken,
-        ServiceEndpoints $endpoints = null
+        ServiceEndpoints $endpoints = null,
     ) {
         parent::__construct($requestBuilder, $webclient, $storageToken->current(), $endpoints);
         $this->storageToken = $storageToken;
