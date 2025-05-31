@@ -87,7 +87,7 @@ final class ServiceBuilder
             throw new Exceptions\InputException('La opción "llave" no es válida', 'llave');
         }
 
-        if (isset($_SERVER['EFIRMA_PASSPHRASE'])) {
+        if (isset($_SERVER['EFIRMA_PASSPHRASE']) && is_scalar($_SERVER['EFIRMA_PASSPHRASE'])) {
             $password = strval($_SERVER['EFIRMA_PASSPHRASE']);
         } else {
             /** @var string $password */

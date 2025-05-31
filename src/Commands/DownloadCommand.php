@@ -37,7 +37,6 @@ class DownloadCommand extends WithFielAbstractCommand
 
     private function buildPackageIdFromInput(InputInterface $input): string
     {
-        /** @var string $packageId */
         $packageId = $input->getArgument('paquete');
         if (! is_string($packageId)) {
             throw new InputException('El argumento "paquete" no es válido', 'paquete');
