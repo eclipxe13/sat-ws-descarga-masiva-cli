@@ -26,7 +26,7 @@ final class ServiceWithStorageTokenTest extends TestCase
         $serviceEndpoints = ServiceEndpoints::cfdi();
         $service = new ServiceWithStorageToken($requestBuilder, $webClient, $storageToken, $serviceEndpoints);
 
-        $this->assertSame($token, $service->currentToken);
+        $this->assertSame($token, $service->getToken());
     }
 
     public function testObtainCurrentTokenWhenTokensAreEqual(): void
@@ -55,7 +55,7 @@ final class ServiceWithStorageTokenTest extends TestCase
         $serviceEndpoints = ServiceEndpoints::cfdi();
         $service = new ServiceWithStorageToken($requestBuilder, $webClient, $storageToken, $serviceEndpoints);
         $this->assertEquals($storedToken, $service->obtainCurrentToken());
-        $service->currentToken = $currentToken;
+        $service->setToken($currentToken);
 
         $this->assertEquals($currentToken, $service->obtainCurrentToken());
         $this->assertEquals($currentToken, $storageToken->current());

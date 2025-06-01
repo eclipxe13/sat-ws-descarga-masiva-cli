@@ -22,6 +22,7 @@ jobs:
           php-version: '8.3'
           coverage: xdebug
           tools: composer:v2
+          extensions: bcmath
         env:
           fail-fast: true
       - name: Get composer cache directory
@@ -82,6 +83,7 @@ jobs:
           php-version: '8.3'
           coverage: none
           tools: composer:v2
+          extensions: bcmath
       - name: Get composer cache directory
         id: composer-cache
         run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT

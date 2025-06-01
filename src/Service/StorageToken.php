@@ -112,7 +112,7 @@ final class StorageToken
     {
         try {
             $this->fs->write($this->filename, $content);
-        } catch (RuntimeException $exception) {
+        } catch (Throwable $exception) {
             throw new RuntimeException(
                 sprintf('Unable to write contents on "%s"', $this->filename),
                 previous: $exception

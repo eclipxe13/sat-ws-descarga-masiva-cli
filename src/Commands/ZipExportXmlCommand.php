@@ -7,7 +7,6 @@ namespace PhpCfdi\SatWsDescargaMasiva\CLI\Commands;
 use PhpCfdi\SatWsDescargaMasiva\CLI\Commands\Exceptions\ExecutionException;
 use PhpCfdi\SatWsDescargaMasiva\CLI\Internal\Filesystem;
 use PhpCfdi\SatWsDescargaMasiva\PackageReader\CfdiPackageReader;
-use RuntimeException;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -55,10 +54,10 @@ class ZipExportXmlCommand extends Command
         $fs = new Filesystem();
         try {
             if (! $fs->exists($sourcePath)) {
-                throw new RuntimeException("El archivo $sourcePath no existe");
+                throw new ExecutionException("El archivo $sourcePath no existe");
             }
             $cfdiReader = CfdiPackageReader::createFromFile($sourcePath);
-        } catch (RuntimeException $exception) {
+        } catch (Throwable $exception) {
             throw ExecutionException::make("El archivo $sourcePath no se pudo abrir", $exception);
         }
 

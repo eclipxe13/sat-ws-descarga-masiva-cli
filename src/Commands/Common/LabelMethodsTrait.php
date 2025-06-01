@@ -24,7 +24,7 @@ trait LabelMethodsTrait
             $downloadType->isReceived() => 'Recibidos',
             default => throw new LogicException(
                 sprintf("Don't know the label for DownloadType %s", $downloadType->value())
-            )
+            ),
         };
     }
 
@@ -35,7 +35,7 @@ trait LabelMethodsTrait
             $serviceType->isRetenciones() => 'Retenciones',
             default => throw new LogicException(
                 sprintf("Don't know the label for ServiceType %s", $serviceType->value())
-            )
+            ),
         };
     }
 
@@ -46,7 +46,7 @@ trait LabelMethodsTrait
             $requestType->isXml() => 'XML',
             default => throw new LogicException(
                 sprintf("Don't know the label for RequestType %s", $requestType->value())
-            )
+            ),
         };
     }
 
@@ -70,7 +70,7 @@ trait LabelMethodsTrait
             $documentType->isUndefined() => '(cualquiera)',
             default => throw new LogicException(
                 sprintf("Don't know the label for DocumentType %s", $documentType->value())
-            )
+            ),
         };
     }
 
@@ -87,7 +87,7 @@ trait LabelMethodsTrait
         return match (true) {
             $documentStatus->isActive() => 'Vigentes',
             $documentStatus->isCancelled() => 'Canceladas',
-            default => '(cualquiera)'
+            default => '(cualquiera)',
         };
     }
 

@@ -14,6 +14,13 @@ que nombraremos así: ` Breaking . Feature . Fix `, donde:
 **Importante:** Las reglas de SEMVER no aplican si estás usando una rama (por ejemplo `main-dev`)
 o estás usando una versión cero (por ejemplo `0.18.4`).
 
+## Versión 0.0.3 2025-05-31
+
+- Se actualiza a `phpcfdi/sat-es-descarga-masiva` versión `1.1.0` para funcionar con el 
+  webservice de descarga masiva del SAT versión 1.5.
+- Se utilizan las excepciones de la librería en lugar de excepciones genpericas.
+- Se actualizan las herramientas de desarrollo.
+
 ## Versión 0.0.2 2024-10-21
 
 - Se agrega la información del archivo `bin/descarga-masiva.php` a la sección de "binarios" de *Composer*.

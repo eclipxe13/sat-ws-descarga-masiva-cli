@@ -91,7 +91,8 @@ final class WithfieldAbstractCommandTest extends TestCase
                 $_SERVER['EFIRMA_PASSPHRASE'] = $passwordOnServer;
             }
         }
-        $this->assertNotNull($fiel);
+
+        $this->assertSame('EKU9003173C9', $fiel->getRfc());
     }
 
     public function testBuildFielFromInputWithoutPrimaryKey(): void
@@ -135,8 +136,9 @@ final class WithfieldAbstractCommandTest extends TestCase
         $builder = $this->createServiceBuilder([
             '--efirma' => $this->filePath('fake-fiel/EKU9003173C9-efirma.json'),
         ]);
+        $fiel = $builder->obtainFiel();
 
-        $this->assertNotNull($builder->obtainFiel());
+        $this->assertSame('EKU9003173C9', $fiel->getRfc());
     }
 
     #[TestWith(['not a json content'])]
