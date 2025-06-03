@@ -22,7 +22,7 @@
         "source": "https://github.com/phpcfdi/sat-ws-descarga-masiva-cli"
     },
     "require": {
-        "php": "^8.2,< 8.4",
+        "php": "^8.2 < 8.4",
         "ext-json": "*",
         "composer-runtime-api": "^2.2",
         "azjezz/psl": "^3.0.2",

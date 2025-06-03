@@ -6,6 +6,7 @@ namespace PhpCfdi\SatWsDescargaMasiva\CLI\Commands;
 
 use PhpCfdi\SatWsDescargaMasiva\CLI\Commands\Common\LabelMethodsTrait;
 use PhpCfdi\SatWsDescargaMasiva\CLI\Commands\Exceptions\ExecutionException;
+use PhpCfdi\SatWsDescargaMasiva\CLI\Commands\Exceptions\InputException;
 use PhpCfdi\SatWsDescargaMasiva\CLI\Commands\QueryCommand\QueryBuilder;
 use PhpCfdi\SatWsDescargaMasiva\CLI\Service\ServiceBuilder;
 use PhpCfdi\SatWsDescargaMasiva\Services\Query\QueryParameters;
@@ -48,6 +49,7 @@ class QueryCommand extends WithFielAbstractCommand
         $this->addOption('complemento', '', InputOption::VALUE_REQUIRED, 'Filtra por el tipo de complemento', '');
         $this->addOption('tercero', '', InputOption::VALUE_REQUIRED, 'Filtra por el RFC a cuenta de terceros', '');
         $this->addOption('uuid', '', InputOption::VALUE_REQUIRED, 'Filtra por el UUID especificado', '');
+        $this->addOption('no-prevalidar', '', InputOption::VALUE_NONE, 'No valida si la consulta es correcta');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
@@ -82,6 +84,14 @@ class QueryCommand extends WithFielAbstractCommand
             ]);
         }
 
+        $noValidate = $this->obtainNoValidateOption($input);
+        if (! $noValidate) {
+            $queryErrors = $queryParameters->validate();
+            if ([] !== $queryErrors) {
+                throw new InputException(implode(PHP_EOL, $queryErrors), '');
+            }
+        }
+
         $queryResult = $service->query($queryParameters);
         $queryStatus = $queryResult->getStatus();
 
@@ -98,6 +108,12 @@ class QueryCommand extends WithFielAbstractCommand
     {
         $builder = new QueryBuilder($input, $serviceType);
         return $builder->build();
+    }
+
+    private function obtainNoValidateOption(InputInterface $input): bool
+    {
+        $value = $input->getOption('no-prevalidar');
+        return is_bool($value) ? $value : false;
     }
 
     public function processResult(QueryResult $queryResult): int

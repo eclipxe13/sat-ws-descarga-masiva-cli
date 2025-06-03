@@ -14,6 +14,12 @@ que nombraremos así: ` Breaking . Feature . Fix `, donde:
 **Importante:** Las reglas de SEMVER no aplican si estás usando una rama (por ejemplo `main-dev`)
 o estás usando una versión cero (por ejemplo `0.18.4`).
 
+## Versión 0.0.4 2025-06-02
+
+- Las consultas se prevalidan por defecto.
+- Se puede omitir la prevalidación con la opción `--no-prevalidar`. 
+- Se actualiza a `phpcfdi/sat-es-descarga-masiva` versión `1.1.1`. 
+
 ## Versión 0.0.3 2025-05-31
 
 - Se actualiza a `phpcfdi/sat-es-descarga-masiva` versión `1.1.0` para funcionar con el 
