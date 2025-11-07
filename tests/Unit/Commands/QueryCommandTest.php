@@ -61,7 +61,7 @@ class QueryCommandTest extends TestCase
         $validOptions = $this->buildValidOptions();
 
         $executionException = $this->captureException(
-            fn () => $tester->execute($validOptions),
+            fn (): int => $tester->execute($validOptions),
         );
 
         $expectedDisplay = <<< TEXT
@@ -106,7 +106,7 @@ class QueryCommandTest extends TestCase
         ];
 
         $executionException = $this->captureException(
-            fn () => $tester->execute($validOptions),
+            fn (): int => $tester->execute($validOptions),
         );
 
         $expectedDisplay = <<< TEXT
@@ -138,7 +138,7 @@ class QueryCommandTest extends TestCase
             $requestId,
         );
 
-        $this->assertSame($command::SUCCESS, $command->processResult($queryResult));
+        $this->assertSame(\PhpCfdi\SatWsDescargaMasiva\CLI\Commands\QueryCommand::SUCCESS, $command->processResult($queryResult));
     }
 
     public function testProcessResultWithInCorrectResult(): void

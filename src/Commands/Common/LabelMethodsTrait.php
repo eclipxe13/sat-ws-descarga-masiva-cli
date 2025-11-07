@@ -76,7 +76,7 @@ trait LabelMethodsTrait
 
     public function getComplementLabel(ComplementoInterface $complement): string
     {
-        if (! $complement->value()) {
+        if ($complement->isUndefined()) {
             return '(cualquiera)';
         }
         return sprintf('(%s) %s', $complement->value(), $complement->label());

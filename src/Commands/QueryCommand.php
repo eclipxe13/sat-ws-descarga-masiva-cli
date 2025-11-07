@@ -113,7 +113,7 @@ class QueryCommand extends WithFielAbstractCommand
     private function obtainNoValidateOption(InputInterface $input): bool
     {
         $value = $input->getOption('no-prevalidar');
-        return is_bool($value) ? $value : false;
+        return is_bool($value) && $value;
     }
 
     public function processResult(QueryResult $queryResult): int

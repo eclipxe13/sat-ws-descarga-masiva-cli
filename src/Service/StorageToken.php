@@ -23,7 +23,6 @@ final class StorageToken
     }
 
     /**
-     * @return Token|null
      * @throws RuntimeException
      */
     public function current(): ?Token

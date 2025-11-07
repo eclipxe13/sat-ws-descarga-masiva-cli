@@ -157,7 +157,7 @@ final readonly class QueryBuilder
     public function buildUuid(): Uuid
     {
         $uuid = $this->getStringOption('uuid');
-        if (! $uuid) {
+        if ('' === $uuid) {
             return Uuid::empty();
         }
         try {
@@ -189,7 +189,7 @@ final readonly class QueryBuilder
     public function buildRfcOnBehalf(): RfcOnBehalf
     {
         $rfc = $this->getStringOption('tercero');
-        if (! $rfc) {
+        if ('' === $rfc) {
             return RfcOnBehalf::empty();
         }
         try {

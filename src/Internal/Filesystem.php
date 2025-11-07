@@ -68,10 +68,7 @@ final class Filesystem
         if (str_starts_with($path, DIRECTORY_SEPARATOR)) {
             return true;
         }
-        if (preg_match('#^[A-Za-z]:[/\\\\]#', $path) && PHP_OS_FAMILY === 'Windows') {
-            return true;
-        }
-        return false;
+        return preg_match('#^[A-Za-z]:[/\\\\]#', $path) && PHP_OS_FAMILY === 'Windows';
     }
 
     /** @return non-empty-string */

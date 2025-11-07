@@ -54,7 +54,7 @@ final class ServiceBuilder
 
     public function obtainLogger(): LoggerInterface
     {
-        return $this->logger ??= ((! $this->output->isQuiet()) ? new ConsoleLogger($this->output) : new NullLogger());
+        return $this->logger ??= (($this->output->isQuiet()) ? new NullLogger() : new ConsoleLogger($this->output));
     }
 
     public function obtainRfc(): string

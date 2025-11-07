@@ -62,7 +62,7 @@ class DownloadCommandTest extends TestCase
 
         $destinationFile = $this->createTemporaryName();
 
-        $this->assertSame($command::SUCCESS, $command->processResult($result, $destinationFile));
+        $this->assertSame(\PhpCfdi\SatWsDescargaMasiva\CLI\Commands\DownloadCommand::SUCCESS, $command->processResult($result, $destinationFile));
         $this->assertFileExists($destinationFile);
         $this->assertStringEqualsFile($destinationFile, $result->getPackageContent());
     }
@@ -77,7 +77,7 @@ class DownloadCommandTest extends TestCase
         $destinationFile = __DIR__ . '/file-must-not-exists';
 
         $executionException = $this->captureException(
-            fn () => $command->processResult($result, $destinationFile),
+            fn (): int => $command->processResult($result, $destinationFile),
         );
 
         $this->assertInstanceOf(ExecutionException::class, $executionException);
