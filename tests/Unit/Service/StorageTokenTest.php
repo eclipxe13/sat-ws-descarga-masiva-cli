@@ -84,7 +84,7 @@ final class StorageTokenTest extends TestCase
         $this->assertSame(
             $token,
             $storageToken->current(),
-            'When no file path is defined, the stored and current token must be the same object'
+            'When no file path is defined, the stored and current token must be the same object',
         );
     }
 

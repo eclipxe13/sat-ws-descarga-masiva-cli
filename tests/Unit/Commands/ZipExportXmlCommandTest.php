@@ -62,7 +62,7 @@ class ZipExportXmlCommandTest extends TestCase
         ];
 
         $executionException = $this->captureException(
-            fn () => $tester->execute($validOptions)
+            fn () => $tester->execute($validOptions),
         );
 
         $this->assertInstanceOf(ExecutionException::class, $executionException);
@@ -83,7 +83,7 @@ class ZipExportXmlCommandTest extends TestCase
         ];
 
         $executionException = $this->captureException(
-            fn () => $tester->execute($validOptions)
+            fn () => $tester->execute($validOptions),
         );
 
         $this->assertInstanceOf(ExecutionException::class, $executionException);
@@ -104,7 +104,7 @@ class ZipExportXmlCommandTest extends TestCase
         ];
 
         $executionException = $this->captureException(
-            fn () => $tester->execute($validOptions)
+            fn () => $tester->execute($validOptions),
         );
 
         $this->assertInstanceOf(ExecutionException::class, $executionException);

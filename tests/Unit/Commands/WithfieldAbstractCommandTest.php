@@ -155,8 +155,8 @@ final class WithfieldAbstractCommandTest extends TestCase
         $this->expectExceptionMessage(
             sprintf(
                 'El archivo de configuración de eFirma "%s" no se pudo interpretar como JSON',
-                $temporaryFile->getPath()
-            )
+                $temporaryFile->getPath(),
+            ),
         );
         $builder->obtainFiel();
     }

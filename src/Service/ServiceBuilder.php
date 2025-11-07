@@ -99,7 +99,7 @@ final class ServiceBuilder
             return Fiel::create(
                 $fs->read($certificateInput),
                 $fs->read($primaryKeyInput),
-                $password
+                $password,
             );
         } catch (Throwable $exception) {
             throw new Exceptions\InputException('No fue posible crear la eFirma', 'certificado', $exception);
@@ -116,7 +116,7 @@ final class ServiceBuilder
             'retenciones' => ServiceEndpoints::retenciones(),
             default => throw new Exceptions\InputException(
                 'La opción "servicio" no es válida, debe ser "cfdi" o "retenciones"',
-                'servicio'
+                'servicio',
             ),
         };
     }
@@ -166,7 +166,7 @@ final class ServiceBuilder
             throw new Exceptions\InputException(
                 "El archivo de configuración de eFirma '$configFile' no se pudo abrir",
                 'efirma',
-                $exception
+                $exception,
             );
         }
 
@@ -179,7 +179,7 @@ final class ServiceBuilder
             throw new Exceptions\InputException(
                 sprintf('El archivo de configuración de eFirma "%s" no se pudo interpretar como JSON', $configFile),
                 'efirma',
-                $exception
+                $exception,
             );
         }
 

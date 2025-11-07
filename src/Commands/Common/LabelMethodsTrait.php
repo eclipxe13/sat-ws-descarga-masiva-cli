@@ -23,7 +23,7 @@ trait LabelMethodsTrait
             $downloadType->isIssued() => 'Emitidos',
             $downloadType->isReceived() => 'Recibidos',
             default => throw new LogicException(
-                sprintf("Don't know the label for DownloadType %s", $downloadType->value())
+                sprintf("Don't know the label for DownloadType %s", $downloadType->value()),
             ),
         };
     }
@@ -34,7 +34,7 @@ trait LabelMethodsTrait
             $serviceType->isCfdi() => 'Cfdi',
             $serviceType->isRetenciones() => 'Retenciones',
             default => throw new LogicException(
-                sprintf("Don't know the label for ServiceType %s", $serviceType->value())
+                sprintf("Don't know the label for ServiceType %s", $serviceType->value()),
             ),
         };
     }
@@ -45,7 +45,7 @@ trait LabelMethodsTrait
             $requestType->isMetadata() => 'Metadata',
             $requestType->isXml() => 'XML',
             default => throw new LogicException(
-                sprintf("Don't know the label for RequestType %s", $requestType->value())
+                sprintf("Don't know the label for RequestType %s", $requestType->value()),
             ),
         };
     }
@@ -69,7 +69,7 @@ trait LabelMethodsTrait
             $documentType->isTraslado() => 'Traslado',
             $documentType->isUndefined() => '(cualquiera)',
             default => throw new LogicException(
-                sprintf("Don't know the label for DocumentType %s", $documentType->value())
+                sprintf("Don't know the label for DocumentType %s", $documentType->value()),
             ),
         };
     }

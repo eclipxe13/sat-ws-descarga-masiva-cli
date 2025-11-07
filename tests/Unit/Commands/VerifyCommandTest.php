@@ -66,7 +66,7 @@ class VerifyCommandTest extends TestCase
             new StatusRequest(1),
             new CodeRequest(5000),
             99,
-            ...['1E172434-E10B-48FD-990C-6844B509ACA3_01', '1E172434-E10B-48FD-990C-6844B509ACA3_02']
+            ...['1E172434-E10B-48FD-990C-6844B509ACA3_01', '1E172434-E10B-48FD-990C-6844B509ACA3_02'],
         );
 
         $this->assertSame($command::SUCCESS, $command->processResult($result));
@@ -80,7 +80,7 @@ class VerifyCommandTest extends TestCase
             new StatusRequest(1),
             new CodeRequest(5000),
             99,
-            ...['1E172434-E10B-48FD-990C-6844B509ACA3_01', '1E172434-E10B-48FD-990C-6844B509ACA3_02']
+            ...['1E172434-E10B-48FD-990C-6844B509ACA3_01', '1E172434-E10B-48FD-990C-6844B509ACA3_02'],
         );
 
         $this->expectException(ExecutionException::class);
@@ -107,7 +107,7 @@ class VerifyCommandTest extends TestCase
             $statusRequest,
             new CodeRequest(5000),
             99,
-            ...['1E172434-E10B-48FD-990C-6844B509ACA3_01', '1E172434-E10B-48FD-990C-6844B509ACA3_02']
+            ...['1E172434-E10B-48FD-990C-6844B509ACA3_01', '1E172434-E10B-48FD-990C-6844B509ACA3_02'],
         );
 
         $this->expectException(ExecutionException::class);
@@ -138,7 +138,7 @@ class VerifyCommandTest extends TestCase
             new StatusRequest(1),
             $CodeRequest,
             99,
-            ...['1E172434-E10B-48FD-990C-6844B509ACA3_01', '1E172434-E10B-48FD-990C-6844B509ACA3_02']
+            ...['1E172434-E10B-48FD-990C-6844B509ACA3_01', '1E172434-E10B-48FD-990C-6844B509ACA3_02'],
         );
 
         $this->expectException(ExecutionException::class);
