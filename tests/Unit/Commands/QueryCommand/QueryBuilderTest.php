@@ -22,7 +22,7 @@ final class QueryBuilderTest extends TestCase
     use ExceptionCatcherTrait;
 
     /** @param string[] $inputs */
-    private function createQueryBuilder(array $inputs, ServiceType $serviceType = null): QueryBuilder
+    private function createQueryBuilder(array $inputs, ?ServiceType $serviceType = null): QueryBuilder
     {
         $input = new ArrayInput($inputs, (new QueryCommand())->getDefinition());
         $serviceType ??= ServiceType::cfdi();
