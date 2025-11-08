@@ -28,6 +28,7 @@ o estás usando una versión cero (por ejemplo `0.18.4`).
 - Se actualiza el estándar de código.
 - Se elimina el archivo de configuración de `rector/rector`.
 - En los flujos de trabajo:
+  - Se corrige el trabajo de `composer-normalize` pues no fallaba al encontrar un error.
   - Se agrega PHP 8.4 a la matriz de pruebas.
   - Se actualizan los trabajos en PHP 8.4.
 - Se actualizan las herramientas de desarrollo.
