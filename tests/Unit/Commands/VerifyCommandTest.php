@@ -69,7 +69,7 @@ class VerifyCommandTest extends TestCase
             ...['1E172434-E10B-48FD-990C-6844B509ACA3_01', '1E172434-E10B-48FD-990C-6844B509ACA3_02'],
         );
 
-        $this->assertSame(\PhpCfdi\SatWsDescargaMasiva\CLI\Commands\VerifyCommand::SUCCESS, $command->processResult($result));
+        $this->assertSame(VerifyCommand::SUCCESS, $command->processResult($result));
     }
 
     public function testProcessResultWithInvalidResultStatusCode(): void

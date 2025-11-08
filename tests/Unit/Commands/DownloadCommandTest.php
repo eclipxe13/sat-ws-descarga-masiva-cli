@@ -62,7 +62,7 @@ class DownloadCommandTest extends TestCase
 
         $destinationFile = $this->createTemporaryName();
 
-        $this->assertSame(\PhpCfdi\SatWsDescargaMasiva\CLI\Commands\DownloadCommand::SUCCESS, $command->processResult($result, $destinationFile));
+        $this->assertSame(DownloadCommand::SUCCESS, $command->processResult($result, $destinationFile));
         $this->assertFileExists($destinationFile);
         $this->assertStringEqualsFile($destinationFile, $result->getPackageContent());
     }

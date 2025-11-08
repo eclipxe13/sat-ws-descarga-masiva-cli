@@ -138,7 +138,7 @@ class QueryCommandTest extends TestCase
             $requestId,
         );
 
-        $this->assertSame(\PhpCfdi\SatWsDescargaMasiva\CLI\Commands\QueryCommand::SUCCESS, $command->processResult($queryResult));
+        $this->assertSame(QueryCommand::SUCCESS, $command->processResult($queryResult));
     }
 
     public function testProcessResultWithInCorrectResult(): void
