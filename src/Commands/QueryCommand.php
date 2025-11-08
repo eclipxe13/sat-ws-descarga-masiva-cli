@@ -44,7 +44,7 @@ class QueryCommand extends WithFielAbstractCommand
             '',
             InputOption::VALUE_REQUIRED,
             'Indefinido, ingreso, egreso, traslado, pago o nómina',
-            ''
+            '',
         );
         $this->addOption('complemento', '', InputOption::VALUE_REQUIRED, 'Filtra por el tipo de complemento', '');
         $this->addOption('tercero', '', InputOption::VALUE_REQUIRED, 'Filtra por el RFC a cuenta de terceros', '');
@@ -113,7 +113,7 @@ class QueryCommand extends WithFielAbstractCommand
     private function obtainNoValidateOption(InputInterface $input): bool
     {
         $value = $input->getOption('no-prevalidar');
-        return is_bool($value) ? $value : false;
+        return is_bool($value) && $value;
     }
 
     public function processResult(QueryResult $queryResult): int
@@ -121,7 +121,7 @@ class QueryCommand extends WithFielAbstractCommand
         $status = $queryResult->getStatus();
         if (! $status->isAccepted()) {
             throw ExecutionException::make(
-                sprintf('La petición no fue aceptada: %s - %s', $status->getCode(), $status->getMessage())
+                sprintf('La petición no fue aceptada: %s - %s', $status->getCode(), $status->getMessage()),
             );
         }
 

@@ -54,7 +54,7 @@ final class ListComplementsCommand extends Command
             'retenciones' => ComplementoRetenciones::getLabels(),
             default => throw new Exceptions\InputException(
                 'La opción "servicio" no es válida, debe ser "cfdi" o "retenciones"',
-                'servicio'
+                'servicio',
             ),
         };
     }

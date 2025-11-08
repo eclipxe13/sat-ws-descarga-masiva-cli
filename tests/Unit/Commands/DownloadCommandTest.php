@@ -57,12 +57,12 @@ class DownloadCommandTest extends TestCase
         $command = new DownloadCommand();
         $result = new DownloadResult(
             new StatusCode(5000, 'Solicitud recibida con éxito'),
-            'package-content'
+            'package-content',
         );
 
         $destinationFile = $this->createTemporaryName();
 
-        $this->assertSame($command::SUCCESS, $command->processResult($result, $destinationFile));
+        $this->assertSame(DownloadCommand::SUCCESS, $command->processResult($result, $destinationFile));
         $this->assertFileExists($destinationFile);
         $this->assertStringEqualsFile($destinationFile, $result->getPackageContent());
     }
@@ -72,12 +72,12 @@ class DownloadCommandTest extends TestCase
         $command = new DownloadCommand();
         $result = new DownloadResult(
             new StatusCode(404, 'Error no controlado'),
-            'package-content'
+            'package-content',
         );
         $destinationFile = __DIR__ . '/file-must-not-exists';
 
         $executionException = $this->captureException(
-            fn () => $command->processResult($result, $destinationFile)
+            fn (): int => $command->processResult($result, $destinationFile),
         );
 
         $this->assertInstanceOf(ExecutionException::class, $executionException);
@@ -90,7 +90,7 @@ class DownloadCommandTest extends TestCase
         $command = new DownloadCommand();
         $result = new DownloadResult(
             new StatusCode(5000, 'Solicitud recibida con éxito'),
-            'package-content'
+            'package-content',
         );
         $destinationFile = __DIR__;
 

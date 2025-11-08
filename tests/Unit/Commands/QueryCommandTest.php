@@ -61,7 +61,7 @@ class QueryCommandTest extends TestCase
         $validOptions = $this->buildValidOptions();
 
         $executionException = $this->captureException(
-            fn () => $tester->execute($validOptions)
+            fn (): int => $tester->execute($validOptions),
         );
 
         $expectedDisplay = <<< TEXT
@@ -106,7 +106,7 @@ class QueryCommandTest extends TestCase
         ];
 
         $executionException = $this->captureException(
-            fn () => $tester->execute($validOptions)
+            fn (): int => $tester->execute($validOptions),
         );
 
         $expectedDisplay = <<< TEXT
@@ -135,10 +135,10 @@ class QueryCommandTest extends TestCase
         $requestId = '1E172434-E10B-48FD-990C-6844B509ACA3';
         $queryResult = new QueryResult(
             new StatusCode(5000, 'Solicitud recibida con éxito'),
-            $requestId
+            $requestId,
         );
 
-        $this->assertSame($command::SUCCESS, $command->processResult($queryResult));
+        $this->assertSame(QueryCommand::SUCCESS, $command->processResult($queryResult));
     }
 
     public function testProcessResultWithInCorrectResult(): void
@@ -147,7 +147,7 @@ class QueryCommandTest extends TestCase
         $requestId = '1E172434-E10B-48FD-990C-6844B509ACA3';
         $queryResult = new QueryResult(
             new StatusCode(404, 'Error no controlado'),
-            $requestId
+            $requestId,
         );
 
         $this->expectException(ExecutionException::class);

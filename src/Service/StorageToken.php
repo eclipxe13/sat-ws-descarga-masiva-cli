@@ -23,7 +23,6 @@ final class StorageToken
     }
 
     /**
-     * @return Token|null
      * @throws RuntimeException
      */
     public function current(): ?Token
@@ -42,7 +41,7 @@ final class StorageToken
         } catch (Throwable $exception) {
             throw new RuntimeException(
                 sprintf('Unable to create token from file %s', $this->filename),
-                previous: $exception
+                previous: $exception,
             );
         }
     }
@@ -115,7 +114,7 @@ final class StorageToken
         } catch (Throwable $exception) {
             throw new RuntimeException(
                 sprintf('Unable to write contents on "%s"', $this->filename),
-                previous: $exception
+                previous: $exception,
             );
         }
     }

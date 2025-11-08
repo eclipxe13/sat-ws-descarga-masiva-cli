@@ -72,7 +72,7 @@ class VerifyCommand extends WithFielAbstractCommand
         $status = $verifyResult->getStatus();
         if (! $status->isAccepted()) {
             throw ExecutionException::make(
-                sprintf('La petición no fue aceptada: %s - %s', $status->getCode(), $status->getMessage())
+                sprintf('La petición no fue aceptada: %s - %s', $status->getCode(), $status->getMessage()),
             );
         }
 
@@ -85,7 +85,7 @@ class VerifyCommand extends WithFielAbstractCommand
             throw ExecutionException::make(sprintf(
                 'El código de estado de la solicitud de descarga no es correcto: %s - %s',
                 $downloadStatus->getValue(),
-                $downloadStatus->getMessage()
+                $downloadStatus->getMessage(),
             ));
         }
 
@@ -94,7 +94,7 @@ class VerifyCommand extends WithFielAbstractCommand
             throw ExecutionException::make(sprintf(
                 'El estado de solicitud de la descarga no es correcto: %s - %s',
                 $statusRequest->getValue(),
-                $statusRequest->getMessage()
+                $statusRequest->getMessage(),
             ));
         }
 

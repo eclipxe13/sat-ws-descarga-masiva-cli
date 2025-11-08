@@ -12,7 +12,7 @@ class InputException extends RuntimeException
     public function __construct(
         string $message,
         private readonly string $argumentName,
-        Throwable $previous = null,
+        ?Throwable $previous = null,
     ) {
         parent::__construct($message, previous: $previous);
     }

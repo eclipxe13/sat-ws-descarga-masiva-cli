@@ -85,7 +85,7 @@ final readonly class QueryBuilder
             throw new InputException(
                 sprintf('La opción "%s" no se pudo interpretar como fecha', $optionName),
                 $optionName,
-                $exception
+                $exception,
             );
         }
     }
@@ -132,7 +132,7 @@ final readonly class QueryBuilder
             'canceladas' => DocumentStatus::cancelled(),
             default => throw new InputException(
                 'Si se especifica, la opción "estado" debe ser "vigentes" o "canceladas"',
-                'estado'
+                'estado',
             ),
         };
     }
@@ -149,7 +149,7 @@ final readonly class QueryBuilder
             'nomina' => DocumentType::nomina(),
             default => throw new InputException(
                 'Si se especifica la opción "documento" debe ser "ingreso", "egreso", "traslado", "pago" o "nómina"',
-                'documento'
+                'documento',
             ),
         };
     }
@@ -157,7 +157,7 @@ final readonly class QueryBuilder
     public function buildUuid(): Uuid
     {
         $uuid = $this->getStringOption('uuid');
-        if (! $uuid) {
+        if ('' === $uuid) {
             return Uuid::empty();
         }
         try {
@@ -166,7 +166,7 @@ final readonly class QueryBuilder
             throw new InputException(
                 'Si se especifica la opción "uuid" debe contener un UUID válido',
                 'uuid',
-                $exception
+                $exception,
             );
         }
     }
@@ -180,7 +180,7 @@ final readonly class QueryBuilder
         } catch (EnumExceptionInterface $exception) {
             $message = sprintf(
                 'La opción "complemento" de %s tiene un valor inválido',
-                ($isCfdi) ? 'Cfdi' : 'Retenciones'
+                ($isCfdi) ? 'Cfdi' : 'Retenciones',
             );
             throw new InputException($message, 'complemento', $exception);
         }
@@ -189,7 +189,7 @@ final readonly class QueryBuilder
     public function buildRfcOnBehalf(): RfcOnBehalf
     {
         $rfc = $this->getStringOption('tercero');
-        if (! $rfc) {
+        if ('' === $rfc) {
             return RfcOnBehalf::empty();
         }
         try {
@@ -198,7 +198,7 @@ final readonly class QueryBuilder
             throw new InputException(
                 'La opción "tercero" tiene un valor inválido',
                 'tercero',
-                $exception
+                $exception,
             );
         }
     }

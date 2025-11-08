@@ -22,7 +22,7 @@ final class QueryBuilderTest extends TestCase
     use ExceptionCatcherTrait;
 
     /** @param string[] $inputs */
-    private function createQueryBuilder(array $inputs, ServiceType $serviceType = null): QueryBuilder
+    private function createQueryBuilder(array $inputs, ?ServiceType $serviceType = null): QueryBuilder
     {
         $input = new ArrayInput($inputs, (new QueryCommand())->getDefinition());
         $serviceType ??= ServiceType::cfdi();
@@ -69,7 +69,7 @@ final class QueryBuilderTest extends TestCase
         /** @var InputException $catched */
         $this->assertStringContainsString(
             'La opción "paquete" debe ser "xml" o "metadata"',
-            $catched->getMessage()
+            $catched->getMessage(),
         );
         $this->assertSame('paquete', $catched->getArgumentName());
     }
@@ -101,7 +101,7 @@ final class QueryBuilderTest extends TestCase
         /** @var InputException $catched */
         $this->assertStringContainsString(
             'La opción "tipo" debe ser "recibidos" o "emitidos"',
-            $catched->getMessage()
+            $catched->getMessage(),
         );
         $this->assertSame('tipo', $catched->getArgumentName());
     }
@@ -131,7 +131,7 @@ final class QueryBuilderTest extends TestCase
         /** @var InputException $catched */
         $this->assertStringContainsString(
             'La opción "rfc" tiene un valor inválido',
-            $catched->getMessage()
+            $catched->getMessage(),
         );
         $this->assertSame('rfc', $catched->getArgumentName());
     }
@@ -164,7 +164,7 @@ final class QueryBuilderTest extends TestCase
         /** @var InputException $catched */
         $this->assertStringContainsString(
             'Si se especifica, la opción "estado" debe ser "vigentes" o "canceladas"',
-            $catched->getMessage()
+            $catched->getMessage(),
         );
         $this->assertSame('estado', $catched->getArgumentName());
     }
@@ -201,7 +201,7 @@ final class QueryBuilderTest extends TestCase
         /** @var InputException $catched */
         $this->assertStringContainsString(
             'Si se especifica la opción "documento" debe ser "ingreso", "egreso", "traslado", "pago" o "nómina"',
-            $catched->getMessage()
+            $catched->getMessage(),
         );
         $this->assertSame('documento', $catched->getArgumentName());
     }
@@ -232,7 +232,7 @@ final class QueryBuilderTest extends TestCase
         /** @var InputException $catched */
         $this->assertStringContainsString(
             'Si se especifica la opción "uuid" debe contener un UUID válido',
-            $catched->getMessage()
+            $catched->getMessage(),
         );
         $this->assertSame('uuid', $catched->getArgumentName());
     }
@@ -270,7 +270,7 @@ final class QueryBuilderTest extends TestCase
         /** @var InputException $catched */
         $this->assertStringContainsString(
             'La opción "complemento" de Cfdi tiene un valor inválido',
-            $catched->getMessage()
+            $catched->getMessage(),
         );
         $this->assertSame('complemento', $catched->getArgumentName());
     }
@@ -300,7 +300,7 @@ final class QueryBuilderTest extends TestCase
         /** @var InputException $catched */
         $this->assertStringContainsString(
             'La opción "tercero" tiene un valor inválido',
-            $catched->getMessage()
+            $catched->getMessage(),
         );
         $this->assertSame('tercero', $catched->getArgumentName());
     }

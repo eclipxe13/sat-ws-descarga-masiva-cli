@@ -79,7 +79,7 @@ class ZipExportXmlCommand extends Command
                     'Error al escribir %s, se exportaron %d de %d archivos',
                     $destinationFile,
                     $exported,
-                    $totalFiles
+                    $totalFiles,
                 );
                 throw ExecutionException::make($message, $exception);
             }

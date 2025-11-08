@@ -75,7 +75,7 @@ class DownloadCommand extends WithFielAbstractCommand
             '%s%s%s.zip',
             rtrim($destinationFolder, DIRECTORY_SEPARATOR),
             DIRECTORY_SEPARATOR,
-            strtolower($packageId)
+            strtolower($packageId),
         );
 
         $output->writeln([
@@ -102,7 +102,7 @@ class DownloadCommand extends WithFielAbstractCommand
         $status = $downloadResult->getStatus();
         if (! $status->isAccepted()) {
             throw ExecutionException::make(
-                sprintf('La petición no fue aceptada: %s - %s', $status->getCode(), $status->getMessage())
+                sprintf('La petición no fue aceptada: %s - %s', $status->getCode(), $status->getMessage()),
             );
         }
 
@@ -112,7 +112,7 @@ class DownloadCommand extends WithFielAbstractCommand
         } catch (RuntimeException $exception) {
             throw ExecutionException::make(
                 sprintf('No se ha podido escribir el archivo %s', $destinationFile),
-                $exception
+                $exception,
             );
         }
 

@@ -22,7 +22,7 @@ final class GuzzleWebClientWithLogger extends GuzzleWebClient
             },
             function (Response $response): void {
                 $this->logResponse($response);
-            }
+            },
         );
     }
 
@@ -33,7 +33,7 @@ final class GuzzleWebClientWithLogger extends GuzzleWebClient
                 RequestOptions::CONNECT_TIMEOUT => 10,
                 RequestOptions::TIMEOUT => 30,
             ]),
-            $logger
+            $logger,
         );
     }
 

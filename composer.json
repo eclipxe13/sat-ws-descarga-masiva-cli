@@ -22,14 +22,14 @@
         "source": "https://github.com/phpcfdi/sat-ws-descarga-masiva-cli"
     },
     "require": {
-        "php": "^8.2 < 8.4",
+        "php": "^8.2",
         "ext-json": "*",
         "composer-runtime-api": "^2.2",
-        "azjezz/psl": "^3.0.2",
-        "eclipxe/enum": "^0.2.6",
-        "eclipxe/xlsxexporter": "^2.0.0",
+        "azjezz/psl": "^3.3 || ^4.2",
+        "eclipxe/enum": "^0.2.7",
+        "eclipxe/xlsxexporter": "^2.0.1",
         "guzzlehttp/guzzle": "^7.8.1",
-        "phpcfdi/sat-ws-descarga-masiva": "^1.1.0",
+        "phpcfdi/sat-ws-descarga-masiva": "^1.1.2",
         "psr/log": "^3.0",
         "symfony/console": "^7.1.2"
     },
